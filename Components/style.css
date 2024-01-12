@@ -1,0 +1,235 @@
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    margin: 0;
+    padding: 0;
+    background: #f8f9fa; /* Fundo cinza claro */
+    color: #333;
+}
+
+header {
+    background: linear-gradient(to right, #333, #1a1a1a); /* Gradiente de cinza escuro */
+    color: #ffc107; /* Amarelo dourado */
+    padding: 20px;
+    text-align: center;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Sombra suave */
+}
+
+nav {
+    background: linear-gradient(to right, #444, #222); /* Gradiente de cinza escuro */
+    padding: 10px;
+    text-align: center;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Sombra suave */
+}
+
+nav a {
+    color: #fff;
+    text-decoration: none;
+    padding: 10px;
+    margin: 0 10px;
+    font-weight: bold;
+    border-bottom: 2px solid transparent;
+    transition: border-bottom 0.3s ease-in-out;
+}
+
+nav a:hover {
+    border-bottom: 2px solid #ffc107; /* Amarelo dourado */
+}
+
+section {
+    padding: 40px 20px;
+    background-color: #fff; /* Fundo branco para as seções */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Sombra suave */
+    margin: 20px;
+    border-radius: 8px; /* Cantos arredondados */
+}
+
+h2 {
+    color: #333;
+    border-bottom: 2px solid #ffc107; /* Amarelo dourado */
+    padding-bottom: 10px;
+    margin-bottom: 20px;
+}
+
+.business-card {
+    background: #fff;
+    padding: 20px;
+    text-align: center;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Sombra suave */
+    border-radius: 8px; /* Cantos arredondados */
+    margin: 20px;
+}
+
+footer {
+    background: linear-gradient(to right, #333, #1a1a1a); /* Gradiente de cinza escuro */
+    color: #fff;
+    text-align: center;
+    padding: 3px;
+    position: auto;
+    bottom: 0;
+    width: 100%;
+    box-shadow: 0 -4px 6px rgba(0, 0, 0, 0.1); /* Sombra suave na parte inferior */
+}
+
+      /* Adicione estilos específicos para a seção de pagamento, se necessário */
+      #pagamento {
+        display: none; /* Inicialmente, ocultamos a seção de pagamento */
+        padding: 40px 20px;
+        background-color: #fff;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        margin: 20px;
+        border-radius: 8px;
+    }
+
+    h2 {
+        color: #333;
+        border-bottom: 2px solid #ffc107;
+        padding-bottom: 10px;
+        margin-bottom: 20px;
+    }
+
+    /* Estilos para as opções de pagamento */
+    .opcao-pagamento {
+        margin-top: 20px;
+    }
+
+    button {
+        background-color: #ffc107;
+        color: #333;
+        padding: 10px 20px;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+        font-size: 16px;
+    }
+
+    button:hover {
+        background-color: #ffd700; /* Amarelo mais claro ao passar o mouse */
+    }
+
+    /* Estilos para o carrinho */
+    #carrinho {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 10px;
+        background: linear-gradient(to right, #444, #222);
+        color: #fff;
+    }
+
+    #carrinho button {
+        background-color: #fff;
+        color: #333;
+        border: none;
+        padding: 5px 10px;
+        cursor: pointer;
+    }
+
+    #carrinho button:hover {
+        background-color: #eee;
+    }
+
+    #carrinho span {
+        margin-right: 10px;
+    }
+
+    h2 {
+        color: #333;
+        border-bottom: 2px solid #ffc107;
+        padding-bottom: 10px;
+        margin-bottom: 20px;
+    }
+
+    #carrinho-items {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .carrinho-item {
+        display: flex;
+        justify-content: space-between;
+        margin-bottom: 10px;
+        padding: 10px;
+        background-color: #eee;
+        border-radius: 4px;
+    }
+
+    #total {
+        font-weight: bold;
+        margin-top: 20px;
+    }
+
+    button {
+        background-color: #ffc107;
+        color: #333;
+        padding: 10px 20px;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+        font-size: 16px;
+    }
+
+    button:hover {
+        background-color: #ffd700; /* Amarelo mais claro ao passar o mouse */
+    }
+
+      /* Adicione estilos específicos para a seção de pagamento, se necessário */
+      #pagamento {
+        display: none; /* Inicialmente, ocultamos a seção de pagamento */
+        padding: 40px 20px;
+        background-color: #fff;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        margin: 20px;
+        border-radius: 8px;
+    }
+
+    h2 {
+        color: #333;
+        border-bottom: 2px solid #ffc107;
+        padding-bottom: 10px;
+        margin-bottom: 20px;
+    }
+
+    /* Estilos para as opções de pagamento */
+    .opcao-pagamento {
+        margin-top: 20px;
+    }
+
+    button {
+        background-color: #ffc107;
+        color: #333;
+        padding: 10px 20px;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+        font-size: 16px;
+    }
+
+    button:hover {
+        background-color: #ffd700; /* Amarelo mais claro ao passar o mouse */
+    }
+
+    /* Estilos para o carrinho */
+    #carrinho {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 10px;
+        background: linear-gradient(to right, #444, #222);
+        color: #fff;
+    }
+
+    #carrinho button {
+        background-color: #fff;
+        color: #333;
+        border: none;
+        padding: 5px 10px;
+        cursor: pointer;
+    }
+
+    #carrinho button:hover {
+        background-color: #eee;
+    }
+
+    #carrinho span {
+        margin-right: 10px;
+    }

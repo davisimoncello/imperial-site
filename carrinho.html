@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Carrinho - Imperial Mobile</title>
+    <link rel="stylesheet" href="Components/style.css">
+</head>
+<body>
+
+    <header>
+        <h1>Imperial Mobile</h1>
+        <p>Sua solução em tecnologia móvel</p>
+    </header>
+
+    <nav>
+        <a href="home.html">Início</a>
+        <a href="produtos.html">Produtos</a>
+        <a href="carrinho.html">Carrinho</a>
+    </nav>
+
+    <section>
+        <h2>Carrinho</h2>
+        <div id="carrinho-items">
+            <!-- Os itens do carrinho serão inseridos dinamicamente aqui com JavaScript -->
+        </div>
+
+        <div id="total"></div>
+
+        <button onclick="processarPagamento()">Pagar</button>
+    </section>
+
+    <footer>
+        <p>&copy; 2024 Imperial Mobile. Todos os direitos reservados.</p>
+    </footer>
+
+    <script>
+        function exibirItensCarrinho() {
+            let carrinho = JSON.parse(localStorage.getItem('carrinho')) || [];
+            const carrinhoItemsDiv = document.getElementById('carrinho-items');
+            const totalDiv = document.getElementById('total');
+
+            carrinhoItemsDiv.innerHTML = ''; // Limpa os itens para evitar duplicatas
+
+            carrinho.forEach(item => {
+                const carrinhoItemDiv = document.createElement('div');
+                carrinhoItemDiv.classList.add('carrinho-item');
+                carrinhoItemDiv.innerHTML = `<span>${item.produto}</span><span>R$${item.preco.toFixed(2)}</span>`;
+                carrinhoItemsDiv.appendChild(carrinhoItemDiv);
+            });
+
+            const total = carrinho.reduce((acc, item) => acc + item.preco, 0);
+            totalDiv.textContent = `Total: R$${total.toFixed(2)}`;
+        }
+
+        function processarPagamento() {
+            const metodoPagamento = prompt("Escolha o método de pagamento: Crédito, Débito, PIX, Boleto");
+            
+            if (!metodoPagamento) {
+                alert('Escolha um método de pagamento válido.');
+                return;
+            }
+
+            switch (metodoPagamento.toLowerCase()) {
+                case 'crédito':
+                    alert('Pagamento processado com sucesso via cartão de crédito.');
+                    break;
+                case 'débito':
+                    alert('Pagamento processado com sucesso via cartão de débito.');
+                    break;
+                case 'pix':
+                    alert('Pagamento processado com sucesso via PIX.');
+                    break;
+                case 'boleto':
+                    alert('Boleto gerado com sucesso. Efetue o pagamento.');
+                    break;
+                default:
+                    alert('Método de pagamento não reconhecido.');
+            }
+
+            // Limpa o carrinho após o pagamento (simulação)
+            localStorage.removeItem('carrinho');
+
+            // Atualiza a exibição do carrinho
+            exibirItensCarrinho();
+        }
+
+        document.addEventListener('DOMContentLoaded', () => {
+            exibirItensCarrinho();
+        });
+    </script>
+
+</body>
+</html>

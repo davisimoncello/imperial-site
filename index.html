@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Imperial Mobile - Início</title>
+    <link rel="stylesheet" href="Components/style.css">
+    <style>
+        .nav-text {
+            color: white;
+            font-size: medium;
+            line-height: 20%;
+            font-weight: 600;
+            text-decoration: none;
+        }
+
+        .nav-text:hover {
+            color: #FED96A;
+        }
+
+        /* Estilos para a barra de cookies */
+        .cookie-bar {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            background-color: #333;
+            color: #fff;
+            padding: 10px;
+            text-align: center;
+        }
+
+        .cookie-bar button {
+            background-color: #fff;
+            color: #333;
+            padding: 5px 10px;
+            border: none;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <img id="image" src="Components/logo.png">
+    </header>
+
+    <nav>
+        <a class="nav-text" id="inicio">Início</a>
+        <a class="nav-text" href="#sobre">Sobre</a>
+        <a class="nav-text" href="#servicos">Serviços</a>
+        <a class="nav-text" href="#contato">Contato</a>
+       
+    </nav>
+
+    <section id="sobre">
+        <h2>Sobre Nós</h2>
+        <p>Bem-vindo à Imperial Mobile, sua parceira em soluções móveis inovadoras. Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+    </section>
+
+    <section id="servicos">
+        <h2>Serviços</h2>
+        <p>Nossos serviços incluem desenvolvimento de aplicativos móveis, consultoria em mobilidade empresarial e muito mais. Estamos comprometidos em oferecer as melhores soluções para sua empresa.</p>
+    </section>
+
+    <section id="contato">
+        <h2>Contato</h2>
+        <p>Entre em contato conosco para obter mais informações ou agendar uma consulta. Estamos ansiosos para ouvir de você!</p>
+    </section>
+
+    <section id="business-card">
+        <h2>Cartão de Visita</h2>
+        <p>Entre em contato conosco para saber mais sobre nossos serviços.</p>
+        <p>Telefone: (11) 1234-5678</p>
+        <p>Email: contato@imperialmobile.com</p>
+    </section>
+
+    <!-- Cookie Bar -->
+    <div id="cookie-bar" class="cookie-bar">
+        <p>Este site utiliza cookies para garantir que você obtenha a melhor experiência.</p>
+        <button onclick="acceptCookies()">Aceitar Cookies</button>
+    </div>
+
+    <footer>
+        <p>&copy; 2024 Imperial Mobile. Todos os direitos reservados.</p>
+    </footer>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            var navItems = document.getElementsByClassName("nav-text");
+
+            for (var i = 0; i < navItems.length; i++) {
+                navItems[i].addEventListener("mouseover", function() {
+                    this.style.color = "#FED96A";
+                });
+
+                navItems[i].addEventListener("mouseout", function() {
+                    this.style.color = "white";
+                });
+            }
+        });
+
+        // Função para aceitar os cookies
+        function acceptCookies() {
+            // Define um cookie com o nome "cookies_accepted" e valor "true" que expira em 30 dias
+            document.cookie = "cookies_accepted=true; expires=" + new Date(new Date().getTime() + 30 * 24 * 60 * 60 * 1000).toUTCString();
+
+            // Esconde a barra de cookies
+            document.getElementById('cookie-bar').style.display = 'none';
+        }
+
+        // Verifica se os cookies foram aceitos anteriormente
+        function checkCookies() {
+            // Obtém todos os cookies
+            const cookies = document.cookie.split('; ');
+
+            // Verifica se o cookie "cookies_accepted" está presente
+            for (const cookie of cookies) {
+                const [name, value] = cookie.split('=');
+                if (name === 'cookies_accepted' && value === 'true') {
+                    // Se os cookies foram aceitos, esconde a barra de cookies
+                    document.getElementById('cookie-bar').style.display = 'none';
+                    return;
+                }
+            }
+        }
+
+        // Chama a função de verificação quando a página é carregada
+        window.onload = checkCookies;
+    </script>
+    
+</body>
+</html>

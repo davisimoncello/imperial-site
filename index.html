@@ -4,22 +4,87 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Imperial Mobile - Início</title>
-    <link rel="icon" href="Components/logo_icon.png" type="image/x-icon">
     <link rel="stylesheet" href="Components/style.css">
+    <link rel="icon" href="Components/logo.png" type="image/x-icon">
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css"/>
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick-theme.css"/>
     <style>
+        /* Estilos para a navegação */
+        .nav {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: #333;
+            padding: 10px;
+            position: relative;
+            z-index: 1;
+        }
+
         .nav-text {
             color: white;
             font-size: medium;
-            line-height: 20%;
             font-weight: 600;
             text-decoration: none;
+            margin: 0 15px;
         }
 
         .nav-text:hover {
             color: #FED96A;
         }
 
-        /* Estilos para a barra de cookies */
+        /* Estilos para a versão móvel da navegação */
+        @media only screen and (max-width: 600px) {
+            .nav {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            /* Estilos para o menu hamburguer */
+            .hamburger {
+                display: block;
+                cursor: pointer;
+                color: white;
+                font-size: medium;
+                font-weight: 600;
+                margin-bottom: 10px;
+            }
+
+            .hamburger:hover {
+                color: #FED96A;
+            }
+
+            .nav-items {
+                display: none;
+                width: 100%;
+                text-align: center;
+            }
+
+            .nav-items.active {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .nav-text {
+                margin: 10px 0;
+            }
+        }
+
+        /* Restante do seu estilo permanece inalterado */
+        
+        .carousel-container {
+            width: 80%;
+            margin: auto;
+        }
+
+        .carousel img {
+            width: 100%;
+            height: auto;
+        }
+        .carousel {
+            text-align: center;
+        }
+        
         .cookie-bar {
             position: fixed;
             bottom: 0;
@@ -46,17 +111,29 @@
         <img id="image" src="Components/logo.png">
     </header>
 
-    <nav>
-        <a class="nav-text" id="inicio">Início</a>
-        <a class="nav-text" href="#sobre">Sobre</a>
-        <a class="nav-text" href="#servicos">Serviços</a>
-        <a class="nav-text" href="#contato">Contato</a>
-       
-    </nav>
+    <!-- Adicionando o menu hamburguer para dispositivos móveis -->
+    <div class="nav">
+        <div class="hamburger">&#9776; Menu</div>
+        <div class="nav-items">
+            <a class="nav-text" id="inicio">Início</a>
+            <a class="nav-text" href="#sobre">Sobre</a>
+            <a class="nav-text" href="#servicos">Serviços</a>
+            <a class="nav-text" href="#contato">Contato</a>
+        </div>
+    </div>
 
     <section id="sobre">
         <h2>Sobre Nós</h2>
         <p>Bem-vindo à Imperial Mobile, sua parceira em soluções móveis inovadoras. Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+        
+        <!-- <div class="carousel-container">
+            <div class="carousel">
+                <div><img class="carousel" src="path/to/image1.jpg" alt="Imagem 1"></div>
+                <div><img class="carousel" src="path/to/image2.jpg" alt="Imagem 2"></div>
+                <div><img class="carousel" src="path/to/image3.jpg" alt="Imagem 3"></div>
+                <!-- Adicione mais slides conforme necessário -->
+            <!-- </div>
+        </div> --> -->
     </section>
 
     <section id="servicos">
@@ -86,9 +163,25 @@
         <p>&copy; 2024 Imperial Mobile. Todos os direitos reservados.</p>
     </footer>
 
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
     <script>
+        $(document).ready(function(){
+            $('.carousel').slick({
+                autoplay: true,
+                autoplaySpeed: 3000,
+                dots: true,
+                infinite: true,
+                speed: 500,
+                fade: true,
+                cssEase: 'linear'
+            });
+        });
+
         document.addEventListener("DOMContentLoaded", function() {
             var navItems = document.getElementsByClassName("nav-text");
+            var hamburger = document.querySelector(".hamburger");
+            var navItemsContainer = document.querySelector(".nav-items");
 
             for (var i = 0; i < navItems.length; i++) {
                 navItems[i].addEventListener("mouseover", function() {
@@ -99,34 +192,30 @@
                     this.style.color = "white";
                 });
             }
+
+            // Adicionando evento de clique para o menu hamburguer
+            hamburger.addEventListener("click", function() {
+                navItemsContainer.classList.toggle("active");
+            });
         });
 
-        // Função para aceitar os cookies
         function acceptCookies() {
-            // Define um cookie com o nome "cookies_accepted" e valor "true" que expira em 30 dias
             document.cookie = "cookies_accepted=true; expires=" + new Date(new Date().getTime() + 30 * 24 * 60 * 60 * 1000).toUTCString();
-
-            // Esconde a barra de cookies
             document.getElementById('cookie-bar').style.display = 'none';
         }
 
-        // Verifica se os cookies foram aceitos anteriormente
         function checkCookies() {
-            // Obtém todos os cookies
             const cookies = document.cookie.split('; ');
 
-            // Verifica se o cookie "cookies_accepted" está presente
             for (const cookie of cookies) {
                 const [name, value] = cookie.split('=');
                 if (name === 'cookies_accepted' && value === 'true') {
-                    // Se os cookies foram aceitos, esconde a barra de cookies
                     document.getElementById('cookie-bar').style.display = 'none';
                     return;
                 }
             }
         }
 
-        // Chama a função de verificação quando a página é carregada
         window.onload = checkCookies;
     </script>
     

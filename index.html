@@ -1,0 +1,398 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Imperial Mobile - Início</title>
+    <link rel="stylesheet" href="Components/style.css">
+    <link rel="icon" href="Components/icon.png" type="image/x-icon">
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css"/>
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick-theme.css"/>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <style>
+        
+        /* Estilos para a navegação */
+        .nav {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: #333;
+            padding: 10px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .nav-text {
+            color: white;
+            font-size: medium;
+            font-weight: 600;
+            text-decoration: none;
+            margin: 0 15px;
+        }
+
+        .nav-text:hover {
+            color: #FED96A;
+        }
+
+        /* Estilos para a versão móvel da navegação */
+        @media only screen and (max-width: 600px) {
+            .nav {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            /* Estilos para o menu hamburguer */
+            .hamburger {
+                display: block;
+                cursor: pointer;
+                color: white;
+                font-size: medium;
+                font-weight: 600;
+                margin-bottom: 10px;
+            }
+
+            .hamburger:hover {
+                color: #FED96A;
+            }
+
+            .nav-items {
+                display: none;
+                width: 100%;
+                text-align: center;
+            }
+
+            .nav-items.active {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .nav-text {
+                margin: 10px 0;
+            }
+        }
+
+        /* Restante do seu estilo permanece inalterado */
+        
+        .carousel-container {
+            width: 80%;
+            margin: auto;
+        }
+
+        .carousel img {
+            width: 100%;
+            height: auto;
+        }
+        .carousel {
+            text-align: center;
+        }
+        
+        .cookie-bar {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            background-color: #333;
+            color: #fff;
+            padding: 10px;
+            text-align: center;
+            font-size: 15px;
+        }
+
+        .cookie-bar button {
+            background-color: #fff;
+            color: #333;
+            padding: 5px 10px;
+            border: none;
+            cursor: pointer;
+        }
+
+        body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    margin: 0;
+    padding: 0;
+    background: #f8f9fa; /* Fundo cinza claro */
+    color: #333;
+}
+
+header {
+    background: linear-gradient(to right, #333, #1a1a1a, #333); /* Gradiente mais suave */
+    color: #ffc107; /* Amarelo dourado */
+    padding: 20px;
+    text-align: center;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Sombra suave */
+}
+
+
+nav {
+    background: linear-gradient(to right, #444, #222); /* Gradiente de cinza escuro */
+    padding: 10px;
+    text-align: center;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Sombra suave */
+}
+
+nav a {
+    color: #fff;
+    text-decoration: none;
+    padding: 10px;
+    margin: 0 10px;
+    font-weight: bold;
+    border-bottom: 2px solid transparent;
+    transition: border-bottom 0.3s ease-in-out;
+}
+
+nav a:hover {
+    border-bottom: 2px solid #ffc107; /* Amarelo dourado */
+}
+
+section {
+    padding: 40px 20px;
+    background-color: #fff; /* Fundo branco para as seções */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Sombra suave */
+    margin: 20px;
+    border-radius: 8px; /* Cantos arredondados */
+}
+
+h2 {
+    color: #333;
+    border-bottom: 2px solid #ffc107; /* Amarelo dourado */
+    padding-bottom: 10px;
+    margin-bottom: 20px;
+}
+
+.business-card {
+    background: #fff;
+    padding: 20px;
+    text-align: center;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Sombra suave */
+    border-radius: 8px; /* Cantos arredondados */
+    margin: 20px;
+}
+
+footer {
+    background: linear-gradient(to right, #333, #1a1a1a); /* Gradiente de cinza escuro */
+    color: #fff;
+    text-align: center;
+    padding: 3px;
+    position: auto;
+    bottom: 0;
+    width: 100%;
+    box-shadow: 0 -4px 6px rgba(0, 0, 0, 0.1); /* Sombra suave na parte inferior */
+}
+
+
+    #total {
+        font-weight: bold;
+        margin-top: 20px;
+    }
+
+    button {
+        background-color: #ffc107;
+        color: #333;
+        padding: 10px 20px;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+        font-size: 16px;
+    }
+    @media only screen and (max-width: 600px) {
+    .nav {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    /* Estilos para o menu hamburguer */
+    .hamburger {
+        display: block;
+        cursor: pointer;
+        color: white;
+        font-size: medium;
+        font-weight: 600;
+        margin-bottom: 10px;
+    }
+
+    .hamburger:hover {
+        color: #FED96A;
+    }
+
+    .nav-items {
+        display: none;
+        width: 100%;
+        text-align: center;
+    }
+
+    .nav-items.active {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .nav-text {
+        margin: 10px 0;
+    }
+}
+
+.material-icons{
+    font-size: 30px;
+    display: flex;
+}
+
+/* Oculta o menu hamburguer no desktop */
+@media only screen and (min-width: 601px) {
+    .hamburger {
+        display: none;
+    }
+
+    .nav-items {
+        display: flex;
+        align-items: center;
+    }
+}
+
+
+    button:hover {
+        background-color: #ffd700; /* Amarelo mais claro ao passar o mouse */
+        font-weight: bold;
+    }
+
+    section {
+            padding: 40px 20px;
+            background-color: #fff; /* Fundo branco para as seções */
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Sombra suave */
+            margin: 20px;
+            border-radius: 8px; /* Cantos arredondados */
+        }
+
+        h2 {
+            color: #333;
+            font-family: 'Roboto', sans-serif; /* Substitua 'Roboto' pela fonte desejada */
+            border-bottom: 2px solid #ffc107; /* Amarelo dourado */
+            padding-bottom: 10px;
+            margin-bottom: 20px;
+        }
+        
+    </style>
+</head>
+<body>
+
+    <header>
+      <img src="Components/logo.png" alt="Logo do Site" style="width: 150px; height: 150px;">
+    </header>
+
+    <!-- Adicionando o menu hamburguer para dispositivos móveis -->
+    <div class="nav">
+        <div class="hamburger">&#9776; Menu</div>
+        <div class="nav-items">
+            <a class="nav-text" id="inicio">Início</a>
+            <a class="nav-text" href="#sobre">Sobre</a>
+            <a class="nav-text" href="#servicos">Serviços</a>
+            <a class="nav-text" href="#contato">Contato</a>
+        </div>
+    </div>
+
+    <section id="sobre">
+        <h2><i class="material-icons">handshake</i>Sobre Nós</h2>
+        <p>Bem-vindo à Imperial Mobile, sua parceira em soluções móveis inovadoras. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nossos especialistas estão comprometidos em fornecer as melhores soluções tecnológicas para impulsionar o seu negócio.</p>
+        <p>Descubra como podemos transformar suas ideias em realidade e oferecer soluções personalizadas para suas necessidades específicas.</p>
+        <ul>
+            <li>Desenvolvimento de aplicativos móveis</li>
+            <li>Consultoria em mobilidade empresarial</li>
+            <li>Soluções personalizadas para suas necessidades</li>
+        </ul>
+       
+    </section>
+    
+    <section id="servicos">
+        <h2><i class="material-icons">manage_accounts</i>Serviços</h2>
+        <p>Nossos serviços abrangem uma ampla gama de soluções móveis para atender às suas necessidades empresariais. Desde o desenvolvimento de aplicativos móveis até consultoria em mobilidade empresarial, estamos aqui para ajudar.</p>
+        <p>Explore nossos serviços e descubra como podemos impulsionar a inovação e a eficiência em sua empresa.</p>
+        <ul>
+            <li>Desenvolvimento de aplicativos móveis personalizados</li>
+            <li>Consultoria estratégica em mobilidade empresarial</li>
+            <li>Otimize seus processos com soluções tecnológicas inovadoras</li>
+        </ul>
+    </section>
+    
+    <section id="contato">
+        <h2><i class="material-icons">business</i> Contato</h2>
+        <p>Entre em contato conosco para obter mais informações ou agendar uma consulta. Estamos ansiosos para ouvir suas ideias e trabalhar juntos para alcançar seus objetivos.</p>
+        <ul>
+            <li>Telefone: (11) 1234-5678</li>
+            <li>Email: contato@imperialmobile.com</li>
+            <li><a>Formulário de Contato</a></li>
+        </ul>
+        <button onclick="location.href='https://www.imperialmobile.com/contato'">Entre em Contato</button>
+        
+    </section>
+    
+  
+    
+
+    <!-- Cookie Bar -->
+    <div id="cookie-bar" class="cookie-bar">
+        <p>Este site utiliza cookies para garantir que você obtenha a melhor experiência.</p>
+        <button onclick="acceptCookies()">Aceitar Cookies</button>
+    </div>
+
+    <footer>
+        <p>&copy; 2024 Imperial Mobile. Todos os direitos reservados.</p>
+    </footer>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
+    <script>
+        $(document).ready(function(){
+            $('.carousel').slick({
+                autoplay: true,
+                autoplaySpeed: 3000,
+                dots: true,
+                infinite: true,
+                speed: 500,
+                fade: true,
+                cssEase: 'linear'
+            });
+        });
+
+        document.addEventListener("DOMContentLoaded", function() {
+            var navItems = document.getElementsByClassName("nav-text");
+            var hamburger = document.querySelector(".hamburger");
+            var navItemsContainer = document.querySelector(".nav-items");
+
+            for (var i = 0; i < navItems.length; i++) {
+                navItems[i].addEventListener("mouseover", function() {
+                    this.style.color = "#FED96A";
+                });
+
+                navItems[i].addEventListener("mouseout", function() {
+                    this.style.color = "white";
+                });
+            }
+
+            // Adicionando evento de clique para o menu hamburguer
+            hamburger.addEventListener("click", function() {
+                navItemsContainer.classList.toggle("active");
+            });
+        });
+
+        function acceptCookies() {
+            document.cookie = "cookies_accepted=true; expires=" + new Date(new Date().getTime() + 30 * 24 * 60 * 60 * 1000).toUTCString();
+            document.getElementById('cookie-bar').style.display = 'none';
+        }
+
+        function checkCookies() {
+            const cookies = document.cookie.split('; ');
+
+            for (const cookie of cookies) {
+                const [name, value] = cookie.split('=');
+                if (name === 'cookies_accepted' && value === 'true') {
+                    document.getElementById('cookie-bar').style.display = 'none';
+                    return;
+                }
+            }
+        }
+
+        window.onload = checkCookies;
+    </script>
+    
+</body>
+</html>
